@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Alex\\source\\repos\\CS362-Group3\\Project2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A5D1CC7B-0E7C-4789-AF94-DB81122240F3}|CS362-Project2\\CS362-Project2.vcxproj|C:\\Users\\Alex\\source\\repos\\CS362-Group3\\Project2\\CS362-Project2\\SATI.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A5D1CC7B-0E7C-4789-AF94-DB81122240F3}|CS362-Project2\\CS362-Project2.vcxproj|solutionrelative:CS362-Project2\\SATI.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SATI.c",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\CS362-Group3\\Project2\\CS362-Project2\\SATI.c",
+              "RelativeDocumentMoniker": "CS362-Project2\\SATI.c",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\CS362-Group3\\Project2\\CS362-Project2\\SATI.c",
+              "RelativeToolTip": "CS362-Project2\\SATI.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-02-24T18:50:19.77Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
