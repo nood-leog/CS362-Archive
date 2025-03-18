@@ -7,13 +7,18 @@
 #include <stdlib.h>
 #include <mpi.h>
 #include <stdbool.h>
+#include <time.h>
 
-#define LIMIT 1000000 //all integers less than 1mil
+#define LIMIT 1000000 // all integers less than 1mil
+#define RUNS 5 // Number of benchmark runs
 
-//prime lookup table
-bool prime[LIMIT + 1];
+bool prime[LIMIT + 1]; // Prime lookup table
 
-//sieve of Eratosthenes to mark primes
+typedef struct {
+    double time;
+} BenchmarkResult;
+
+// Sieve of Eratosthenes to mark primes
 void sieve()
 {
     for (int i = 0; i <= LIMIT; i++) prime[i] = true;
@@ -34,44 +39,63 @@ void sieve()
 int main(int argc, char** argv)
 {
     int rank, size, local_count = 0, global_count = 0;
+    BenchmarkResult results[RUNS];
 
-    //initialize MPI
+    // Initialize MPI
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    //start the sieve if this is the first process (rank 0)
-    if (rank == 0)
-    {
-        sieve();  //start initializes sieve
-    }
+    for (int run = 0; run < RUNS; run++) {
+        double start_time = MPI_Wtime();
 
-    //mpi broadcast the prime lookup table
-    MPI_Bcast(prime, LIMIT + 1, MPI_C_BOOL, 0, MPI_COMM_WORLD);
-
-    //define the workload for each process
-    int start = 3 + (rank * 2);  //start from the first odd number for this rank
-    int step = 2 * size;         //step by 2 * number of processes to ensure even workload
-
-    //count twin primes in assigned range
-    for (int i = start; i < LIMIT - 2; i += step)
-    {
-        if (prime[i] && prime[i + 2])
-        {
-            local_count++;
+        // Process 0 initializes the sieve
+        if (rank == 0) {
+            sieve();
+            // Start pipeline send
+            MPI_Send(prime, LIMIT + 1, MPI_C_BOOL, 1, 0, MPI_COMM_WORLD);
         }
+        else {
+            // Other processes receive and forward
+            MPI_Recv(prime, LIMIT + 1, MPI_C_BOOL, rank - 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            if (rank < size - 1) {
+                MPI_Send(prime, LIMIT + 1, MPI_C_BOOL, rank + 1, 0, MPI_COMM_WORLD);
+            }
+        }
+
+        // Define workload for each process
+        int start = 3 + (rank * 2);
+        int step = 2 * size;
+
+        // Count twin primes in assigned range
+        local_count = 0;
+        for (int i = start; i < LIMIT - 2; i += step)
+        {
+            if (prime[i] && prime[i + 2])
+            {
+                local_count++;
+            }
+        }
+
+        // Collect and sum all counts from all processes
+        MPI_Reduce(&local_count, &global_count, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+
+        double end_time = MPI_Wtime();
+        results[run].time = end_time - start_time;
     }
 
-    //collect and sum all counts from all processes
-    MPI_Reduce(&local_count, &global_count, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
-
-    //print the total count of twin primes once all processes have finished
-    if (rank == 0)
-    {
+    // Compute average execution time
+    if (rank == 0) {
+        double avg_time = 0;
+        for (int i = 0; i < RUNS; i++) {
+            avg_time += results[i].time;
+        }
+        avg_time /= RUNS;
         printf("Total twin primes below %d: %d\n", LIMIT, global_count);
+        printf("Average execution time over %d runs: %f seconds\n", RUNS, avg_time);
     }
 
-    //finalize MPI
+    // Finalize MPI
     MPI_Finalize();
     return 0;
 }
