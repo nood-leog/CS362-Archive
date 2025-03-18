@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Alex\\source\\repos\\CS362-Group3\\FinalProject\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{005BCF2C-F505-44FC-8B21-D4C6C7F9B3DB}|FinalProject\\FinalProject.vcxproj|C:\\Users\\Alex\\source\\repos\\CS362-Group3\\FinalProject\\FinalProject\\FinalProject\\FinalProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{005BCF2C-F505-44FC-8B21-D4C6C7F9B3DB}|FinalProject\\FinalProject.vcxproj|solutionrelative:FinalProject\\FinalProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{005BCF2C-F505-44FC-8B21-D4C6C7F9B3DB}|FinalProject\\FinalProject.vcxproj|C:\\Users\\Alex\\source\\repos\\CS362-Group3\\FinalProject\\FinalProject\\FinalProject\\FinalProject.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{005BCF2C-F505-44FC-8B21-D4C6C7F9B3DB}|FinalProject\\FinalProject.vcxproj|solutionrelative:FinalProject\\FinalProject.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,14 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FinalProject.cpp",
-              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\CS362-Group3\\FinalProject\\FinalProject\\FinalProject\\FinalProject.cpp",
-              "RelativeDocumentMoniker": "FinalProject\\FinalProject.cpp",
-              "ToolTip": "C:\\Users\\Alex\\source\\repos\\CS362-Group3\\FinalProject\\FinalProject\\FinalProject\\FinalProject.cpp",
-              "RelativeToolTip": "FinalProject\\FinalProject.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-18T14:06:36.363Z",
+              "Title": "FinalProject.c",
+              "DocumentMoniker": "C:\\Users\\Alex\\source\\repos\\CS362-Group3\\FinalProject\\FinalProject\\FinalProject\\FinalProject.c",
+              "RelativeDocumentMoniker": "FinalProject\\FinalProject.c",
+              "ToolTip": "C:\\Users\\Alex\\source\\repos\\CS362-Group3\\FinalProject\\FinalProject\\FinalProject\\FinalProject.c",
+              "RelativeToolTip": "FinalProject\\FinalProject.c",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-03-18T14:56:11.234Z",
               "EditorCaption": ""
             }
           ]
